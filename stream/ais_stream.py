@@ -5,7 +5,7 @@ import sys,os
 try:
     HOST = '153.44.253.27'    # The remote host
     PORT = 5631             # The same port as used by the server
-    OUT_PATH = "/home/kentt/nfs_hdfs/DATASETS/AIS/ais_stream.raw"
+    OUT_PATH = "test.raw"#"/home/kentt/nfs_hdfs/DATASETS/AIS/ais_stream.raw"
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
     while True:
@@ -14,7 +14,12 @@ try:
 
         with open(OUT_PATH,'a') as f:
             for line in data:
-                f.write("hei"+line+"\n")
+                linesplit=line+"\n"
+
+                if linesplit == "\n":
+                    continue
+                else:
+                    f.write(linesplit)
     
 except KeyboardInterrupt:
     print 'Interrupted'
