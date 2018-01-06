@@ -19,5 +19,3 @@ jupyter contrib nbextension install --user;
 python2 -m pip install --user --upgrade ipykernel;
 python2.7 -m ipykernel install --user;
 ```
-
-## Install Apache Toree (Scala kernel)
